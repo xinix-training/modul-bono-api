@@ -195,7 +195,7 @@ PUT /data/1234 HTTP/1.1
 [berbagai header]
 
 <appointmentRequest>
-    <patient id = "jsmith"/>
+  <patient id = "jsmith"/>
 </appointmentRequest>
 ```
 
@@ -280,7 +280,7 @@ let multiparty = require('multiparty');
 let form       = new multiparty.Form();
 
 form.parse(request, function (err, fields, files)) {
-    console.log({'fields': fields, 'files': files});
+  console.log({'fields': fields, 'files': files});
 });
 
 ```
@@ -586,9 +586,52 @@ Keseluruhan Kode|Kode yang Terdefinisi|Kategori
 
 Tabel di bawah menunjukkan seluruh kode status HTTP yang ada, sesuai dengan spesifikasi HTTP/1.1.
 
-Kode Status Reason Phrase Makna 100 Continue Bagian awal dari request telah diterima. Lanjutkan pemrosesan. 101 Switching Protocol Server beralih menggunakan protokol yang berbeda, sesuai permintaan client pada header Upgrade. 200 OK Request berjalan sukses 201 Created Data berhasil dibuat (untuk request yang membuat objek baru). 202 Accepted Request diterima, tetapi server tidak melakukan apa-apa. 203 Non-Authoritative Information Transaksi berhasil, tetapi informasi pada header dari response tidak berasal dari server asli, tapi dari kopi data. 204 No Content Response hanya berisi header dan status line, tanpa body. 205 Reset Content Kode yang dirancang khusus untuk browser; meminta browser menghapus isi dari semua elemen form HTML pada halaman aktif. 206 Partial Content Request parsial berhasil. 300 Multiple Choices Client memberikan request URL yang merujuk ke beberapa data. Kode dikirimkan dengan beberapa pilihan yang dapat dipilih client 301 Moved Permanently URL dari request telah dipindahkan. Response wajib berisi lokasi URL baru. 302 Found Sama seperti 301, tetapi perpindahan hanya untuk sementara. URL data sementara diberikan melalui header Location. 303 See Other Response dari request ada pada halaman lain, yang harus diambil dengan GET. Jika request merupakan POST, PUT, atau DELETE, asumsikan server telah menerima data dan redirect dilakukan dengan GET yang baru. 304 Not Modified Mengindikasikan tidak ada perubahan data dari request sebelumnya. 305 Use Proxy Data harus diakses dari proxy. Lokasi proxy diberikan di header Location. 306 Switch Proxy Kode status tidak lagi digunakan untuk sekarang. 307 Temporary Redirect Request harus dilakukan kembali pada URI lain untuk sementara. Server dianggap tidak menerima data, sehingga jika request awal merupakan POST maka request baru juga harus POST. 400 Bad Request Client memberikan request yang tidak lengkap atau salah. 401 Unauthorized Akses ditolak. Header autentikasi akan dikirimkan. 402 Payment Required Belum digunakan, tetapi disiapkan untuk penggunaan pada masa depan. 403 Forbidden Request ditolak oleh server. 404 Not Found URL yang diminta tidak ditemukan pada server. 405 Method Not Allowed Method tidak didukung server. Header daftar method yang didukung untuk URL tersebut harus ada pada response. 406 Not Acceptable Jika client memberikan daftar format yang dapat dibaca, kode ini menandakan server tidak dapat memberikan data dalam format itu. 407 Proxy Authentication Required Seperti 401, tetapi autentikasi dilakukan terhadap proxy. 408 Request Timeout Client terlalu lama dalam menyelesaikan request. 409 Conflict Request menyebabkan konflik pada data yang diminta. 410 Gone Seperti 404, tetapi server pernah memiliki data tersebut. 411 Length Required Request harus memiliki headaer Content-Length. 412 Precondition Failed Diberikan jika client membuat conditional request dan kondisi tidak terpenuhi. 413 Request Entity Too Large Entity pada request terlalu besar. 414 Request URI Too Long URI yang dikirimkan kepada server terlalu panjang. 415 Unsupported Media Type Format data yang dikirimkan tidak didukung oleh server. 416 Request Range Not Satisfiable Tidak dapat memenuhi cakupan data, untuk request yang menintanya. 417 Expectation Failed Server tidak dapat memenuhi parameter Expectation yang ada pada request. 500 Internal Server Error Server mengalami error ketika memproses request. 501 Not Implemented Client membuat request yang di luar kemampuan server. 502 Bad Gateway Server proxy atau gateway menemukan response yang aneh dari titik berikutnya pada rantai response. 503 Service Unavailable Server untuk sementara tidak dapat memproses request. 504 Gateway Timeout Sama dengan 408 tetapi dari gateway atau proxy, bukan client. 505 HTTP Version Not Supported Versi protokol tidak didukung oleh server.
+Kode Status | Frase Alasan     | Makna
+------------|------------------|-----------------------------------------------
+100|Continue|Bagian awal dari request telah diterima. Lanjutkan pemrosesan.
+101|Switching Protocol|Server beralih menggunakan protokol yang berbeda, sesuai permintaan client pada header Upgrade.
+200|OK|Request berjalan sukses
+201|Created|Data berhasil dibuat (untuk request yang membuat objek baru).
+202|Accepted|Request diterima, tetapi server tidak melakukan apa-apa.
+203|Non-Authoritative Information|Transaksi berhasil, tetapi informasi pada header dari response tidak berasal dari server asli, tapi dari kopi data.
+204|No Content|Response hanya berisi header dan status line, tanpa body.
+205|Reset Content|Kode yang dirancang khusus untuk browser; meminta browser menghapus isi dari semua elemen form HTML pada halaman aktif.
+206|Partial Content|Request parsial berhasil.
+300|Multiple Choices|Client memberikan request URL yang merujuk ke beberapa data. Kode dikirimkan dengan beberapa pilihan yang dapat dipilih client 301 Moved Permanently URL dari request telah dipindahkan. Response wajib berisi lokasi URL baru.
+302|Found|Sama seperti 301, tetapi perpindahan hanya untuk sementara. URL data sementara diberikan melalui header Location.
+303|See Other|Response dari request ada pada halaman lain, yang harus diambil dengan GET. Jika request merupakan POST, PUT, atau DELETE, asumsikan server telah menerima data dan redirect dilakukan dengan GET yang baru.
+304|Not Modified|Mengindikasikan tidak ada perubahan data dari request sebelumnya.
+305|Use Proxy|Data harus diakses dari proxy. Lokasi proxy diberikan di header Location.
+306|Switch Proxy|Kode status tidak lagi digunakan untuk sekarang.
+307|Temporary Redirect|Request harus dilakukan kembali pada URI lain untuk sementara. Server dianggap tidak menerima data, sehingga jika request awal merupakan POST maka request baru juga harus POST.
+400|Bad Request|Client memberikan request yang tidak lengkap atau salah.
+401|Unauthorized|Akses ditolak. Header autentikasi akan dikirimkan.
+402|Payment Required|Belum digunakan, tetapi disiapkan untuk penggunaan pada masa depan.
+403|Forbidden|Request ditolak oleh server.
+404|Not Found|URL yang diminta tidak ditemukan pada server.
+405|Method Not Allowed|Method tidak didukung server. Header daftar method yang didukung untuk URL tersebut harus ada pada response.
+406|Not Acceptable|Jika client memberikan daftar format yang dapat dibaca, kode ini menandakan server tidak dapat memberikan data dalam format itu.
+407|Proxy Authentication Required|Seperti 401, tetapi autentikasi dilakukan terhadap proxy.
+408|Request Timeout|Client terlalu lama dalam menyelesaikan request.
+409|Conflict|Request menyebabkan konflik pada data yang diminta.
+410|Gone|Seperti 404, tetapi server pernah memiliki data tersebut.
+411|Length Required|Request harus memiliki headaer Content-Length.
+412|Precondition Failed|Diberikan jika client membuat conditional request dan kondisi tidak terpenuhi.
+413|Request Entity Too Large|Entity pada request terlalu besar.
+414|Request URI Too Long|URI yang dikirimkan kepada server terlalu panjang.
+415|Unsupported Media Type|Format data yang dikirimkan tidak didukung oleh server.
+416|Request Range Not Satisfiable|Tidak dapat memenuhi cakupan data, untuk request yang menintanya.
+417|Expectation Failed Server|tidak dapat memenuhi parameter Expectation yang ada pada request.
+500|Internal Server|Error Server mengalami error ketika memproses request.
+501|Not Implemented Client|membuat request yang di luar kemampuan server.
+502|Bad Gateway|Server proxy atau gateway menemukan response yang aneh dari titik berikutnya pada rantai response.
+503|Service Unavailable|Server untuk sementara tidak dapat memproses request.
+504|Gateway Timeout|Sama dengan 408 tetapi dari gateway atau proxy, bukan client.
+505|HTTP Version Not Supported|Versi protokol tidak didukung oleh server.
 
 ## Arsitektur REST
+
+TBD
 
 ## Format JSON
 
@@ -622,12 +665,12 @@ Key JSON berada di sebelah kiri tanda titik dua. Mereka perlu dibungkus oleh tan
 
 Value JSON ada di sebelah kanan tanda titik dua. Ada enam tipe data dasar yang bisa dipakai untuk mengisinya yaitu:
 
-  * strings
-  * numbers
-  * objects
-  * arrays
-  * Booleans (true atau false)
-  * null
+* strings
+* numbers
+* objects
+* arrays
+* Booleans (true atau false)
+* null
 
 Secara lebih luas, value juga dapat berisi tipe data yang lebih kompleks misalnya JSON object atau JSON array yang akan kita bahas di bagian berikutnya.
 
@@ -796,5 +839,3 @@ Kita akan melihat contoh data yang disimpan ke dalam format XML dan JSON.
 Kita dapat lihat bahwa JSON jauh lebih ringkas dan tidak memerlukan tag penutup seperti halnya XML. Sebagai tambahan, XML tidak menggunakan sebuah array seperti yang tadi kita pelajari.
 
 Jika pembaca sudah mengenal HTML, pembaca akan melihat kemiripan dari penggunaan tag-nya. Meski JSON lebih singkat dan lebih mudah dari XML serta dapat dipakai di berbagai situasi termasuk aplikasi AJAX, kita perlu memahami tipe proyek yang sedang dikerjakan sebelum memutuskan struktur data apa yang akan digunakan.
-
-### Penggunaan Curl dan Postman
