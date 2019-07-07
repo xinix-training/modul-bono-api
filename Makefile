@@ -1,2 +1,2 @@
 generate:
-	pandoc --template template.tex --toc -V toc-title:"Daftar Isi" -o module-bono-api.pdf *.md
+	pandoc --template src/templates/template.tex --toc -V toc-title:"Daftar Isi" -o dist/module-bono-api.pdf src/*.md
